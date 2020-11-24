@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Mata Uang</title>
+    <style>
+        .container{
+            background-color:#345169;
+            border-radius: 8px;
+            height: 410px;
+            margin: 6rem auto 8.1rem auto;
+            width: 329px;
+            display: flex;
+            flex-direction: column;
+            flex-basis: 40%;
+        }
+
+        .item{
+            background-color:#38BD94;
+            padding: 1em;
+            margin: 1em;
+            text-align: center;
+            border-radius: 8px;
+            flex-basis: 20%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="container">
+            <div class="item">
+                <p>Masukkan Nilai</p>
+                <input type="number" id="nilai">
+            </div>
+            <div class="item">
+                <p>Valas</p>
+                <select id="valas">
+                    <option value="1">--pilih mata uang--</option>
+                    <option value="usd">Dollar Us</option>
+                    <option value="sgd">Dollar Singapure</option>
+                    <option value="rgt">Ringgit Malaysia</option>
+                    <option value="yen">Yen Jepang</option>
+                    <option value="eur">Euro</option>
+                    <option value="ryl">Riyal Arab Saudi</option>
+                </select>
+            </div>
+            <div class="item">
+                <p>Nilai Rupiah</p>
+                <input type="text" id="hasil" disabled>
+                <button type="reset" class="reset">reset</button>
+            </div>
+        </div>
+    </form> 
+
+    <script>
+        const nilai = document.querySelector("#nilai");
+        const valas = document.querySelector("#valas");
+        const hasil = document.querySelector("#hasil");
+
+        const nilaiUang = {
+            "usd" : 14149,
+            "sgd" : 10607,
+            "rgt" : 3443,
+            "yen" : 135,
+            "eur" : 16795,
+            "ryl" : 3755,
+        }
+
+        valas.addEventListener("change", function(){
+            if(nilai.value == null || nilai.value == ""){
+                hasil.value = "masukkan nilai";
+            }
+            else if (valas.value == "1"){
+                hasil.value = "pilih mata uang!";
+            }
+            else if(valas.value == "usd"){
+                hasil.value = nilai.value * nilaiUang.usd;
+            }
+            else if (valas.value == "sgd"){
+                hasil.value = nilai.value * nilaiUang.sgd;
+            }
+            else if (valas.value == "rgt"){
+                hasil.value = nilai.value * nilaiUang.rgt;
+            }
+            else if (valas.value == "yen"){
+                hasil.value = nilai.value * nilaiUang.yen;
+            }
+            else if (valas.value == "eur"){
+                hasil.value = nilai.value * nilaiUang.eur;
+            }
+            else if (valas.value == "ryl"){
+                hasil.value = nilai.value * nilaiUang.ryl;
+            }
+            
+        })
+    </script>
+</body>
+</html>

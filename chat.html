@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <style>
+        body {
+            background-color: #08A1B5;
+            
+        }
+
+        .container{
+            margin: auto;
+            max-width: 550px;
+            background-color:#2D2C74;
+            border-style: solid;
+            border-width: 1px;
+            padding: 20px 25px;
+            border-radius: 15px;
+        }
+        .main{
+            border-style: solid;
+            background-color: #59E6F5;
+            border-width: 3px;
+            margin: 20px;
+            padding: 10px 15px 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="main">
+            <p class="hasil">&nbsp;</p>
+            <p class="hasil">&nbsp;</p>
+            <p class="hasil">&nbsp;</p>
+            <p class="hasil">&nbsp;</p>
+            <p class="hasil">&nbsp;</p>
+            <input type="text" class="pesan">
+            <button class="klik">submit</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let hasil = document.querySelector(".hasil");
+    const pesan = document.querySelector(".pesan");
+    const btn = document.querySelector(".klik");
+
+    btn.addEventListener("click", function(){
+        hasil.innerHTML = hasil.innerHTML + "<br>" + pesan.value;
+    })
+</script>
+</html>
